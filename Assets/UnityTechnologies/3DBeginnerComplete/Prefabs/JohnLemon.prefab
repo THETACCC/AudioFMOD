@@ -870,7 +870,6 @@ GameObject:
   - component: {fileID: 7438738072484405706}
   - component: {fileID: 3576288450122217075}
   - component: {fileID: 142462114116109389}
-  - component: {fileID: -2831901066587951990}
   - component: {fileID: 2133631405025180382}
   m_Layer: 0
   m_Name: JohnLemon
@@ -983,7 +982,7 @@ MonoBehaviour:
     m_Name: Move
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: bef014da-3294-4dbf-b103-34cf83ebf167
+    m_Id: 2290f5d3-c503-4d2b-9bf4-8f918d23342b
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
@@ -1069,19 +1068,6 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
   turnSpeed: 20
---- !u!114 &-2831901066587951990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6077229646317852079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
 --- !u!114 &2133631405025180382
 MonoBehaviour:
   m_ObjectHideFlags: 0

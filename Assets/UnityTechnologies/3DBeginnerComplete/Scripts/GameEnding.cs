@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMODUnity;
 
 public class GameEnding : MonoBehaviour
 {
@@ -7,9 +8,14 @@ public class GameEnding : MonoBehaviour
     public float displayImageDuration = 1f;
     public GameObject player;
     public CanvasGroup exitBackgroundImageCanvasGroup;
-    public AudioSource exitAudio;
+    //public AudioSource exitAudio;
+
+    [SerializeField] StudioEventEmitter exitAudioEvent;
+    [SerializeField] StudioEventEmitter caughtAudioEvent;
+
+
     public CanvasGroup caughtBackgroundImageCanvasGroup;
-    public AudioSource caughtAudio;
+    //public AudioSource caughtAudio;
 
     bool m_IsPlayerAtExit;
     bool m_IsPlayerCaught;
@@ -33,15 +39,43 @@ public class GameEnding : MonoBehaviour
     {
         if (m_IsPlayerAtExit)
         {
-            EndLevel (exitBackgroundImageCanvasGroup, false, exitAudio);
+            //EndLevel (exitBackgroundImageCanvasGroup, false, exitAudio);
+            EndLevel(exitBackgroundImageCanvasGroup, false, exitAudioEvent);
         }
         else if (m_IsPlayerCaught)
         {
-            EndLevel (caughtBackgroundImageCanvasGroup, true, caughtAudio);
+            //EndLevel (caughtBackgroundImageCanvasGroup, true, caughtAudio);
+            EndLevel(caughtBackgroundImageCanvasGroup, true, caughtAudioEvent);
         }
     }
 
-    void EndLevel (CanvasGroup imageCanvasGroup, bool doRestart, AudioSource audioSource)
+    void EndLevel(CanvasGroup imageCanvasGroup, bool doRestart, StudioEventEmitter em)
+    {
+        if (!m_HasAudioPlayed)
+        {
+            em.Play();
+            m_HasAudioPlayed = true;
+        }
+
+        m_Timer += Time.deltaTime;
+        imageCanvasGroup.alpha = m_Timer / fadeDuration;
+
+        if (m_Timer > fadeDuration + displayImageDuration)
+        {
+            if (doRestart)
+            {
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                Application.Quit();
+            }
+        }
+    }
+}
+
+/*
+void EndLevel (CanvasGroup imageCanvasGroup, bool doRestart, AudioSource audioSource)
     {
         if (!m_HasAudioPlayed)
         {
@@ -64,4 +98,5 @@ public class GameEnding : MonoBehaviour
             }
         }
     }
-}
+*/
+

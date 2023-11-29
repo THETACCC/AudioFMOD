@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 4702546749944296}
   - component: {fileID: 7872914928149712408}
   - component: {fileID: 6027290146643692454}
+  - component: {fileID: 3559626972159057932}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -158,11 +159,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1919044114
-      Data2: 1282012695
-      Data3: 1953350060
-      Data4: -1474222687
-    Path: event:/teste22
+      Data1: 2007474711
+      Data2: 1317367938
+      Data3: 985432734
+      Data4: -1792325626
+    Path: event:/LightBuzzing
   Event: 
   PlayEvent: 1
   StopEvent: 0
@@ -171,9 +172,40 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0.1
+  OverrideMaxDistance: 0.12
+--- !u!114 &3559626972159057932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235029715015770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -675300478
+      Data2: 1261572343
+      Data3: -373802849
+      Data4: -484937751
+    Path: event:/CandleBurning
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0.1
+  OverrideMaxDistance: 0.12
 --- !u!1 &1709817322097888
 GameObject:
   m_ObjectHideFlags: 0

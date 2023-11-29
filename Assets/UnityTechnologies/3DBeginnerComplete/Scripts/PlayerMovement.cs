@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     Animator m_Animator;
     Rigidbody m_Rigidbody;
-    AudioSource m_AudioSource;
+    [SerializeField] StudioEventEmitter walkEvent;
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
 
@@ -19,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     {
         m_Animator = GetComponent<Animator> ();
         m_Rigidbody = GetComponent<Rigidbody> ();
-        m_AudioSource = GetComponent<AudioSource> ();
+        //m_AudioSource = GetComponent<AudioSource> ();
         
         MoveAction.Enable();
     }
@@ -41,14 +42,17 @@ public class PlayerMovement : MonoBehaviour
         
         if (isWalking)
         {
-            if (!m_AudioSource.isPlaying)
+            if(!walkEvent.IsPlaying())
             {
-                m_AudioSource.Play();
+                Debug.Log("Playsound");
+                walkEvent.Play();
             }
+
+            
         }
         else
         {
-            m_AudioSource.Stop ();
+             walkEvent.Stop ();
         }
 
         Vector3 desiredForward = Vector3.RotateTowards (transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
